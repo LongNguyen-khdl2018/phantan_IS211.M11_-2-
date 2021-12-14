@@ -191,7 +191,7 @@ SELECT MaSach
 FROM sach2.KHOSACH_QLKHO
 
 --- 10 cau query---
---Querry 4: Tra ra thông tin ma sach, ten sach, tong so cho nhanh phan phoi cua nhung cuon sach co lan in khac 1
+--Querry 4: Tra ra thÃ´ng tin ma sach, ten sach, tong so cho nhanh phan phoi cua nhung cuon sach co lan in khac 1
 SELECT MaSach, TenSach, COUNT(DISTINCT machinhanh) AS TongSoChiNhanh
 FROM (
     SELECT S1.MaSach as MaSach, TenSach, MaChiNhanh, LanIn
@@ -203,7 +203,7 @@ FROM (
 WHERE LanIn <> 1
 GROUP BY MaSach, TenSach;
 
---Querrt 5: Xuat tên sách có tác gia là George Martin hoac nha xuat ban là Trí Tue?
+--Querrt 5: Xuat tÃªn sÃ¡ch cÃ³ tÃ¡c gia lÃ  George Martin hoac nha xuat ban lÃ  TrÃ­ Tue?
 SELECT S2.TenSach, S2.TacGia, S2.NhaXuatBan
 FROM sach2.SACH@GD_S2 S2
 WHERE S2.TacGia='George Martin' OR S2.NhaXuatBan='TriTue'
@@ -225,14 +225,14 @@ WHERE S1.Luong > 4000000;
 -- Yeu Cau 3 ---
 
 
---Cài dat câu lenh dùng ?? xem muc cô lap
+--CÃ i dat cÃ¢u lenh dÃ¹ng ?? xem muc cÃ´ lap
 declare
 trans_id Varchar2(100);
 begin
 trans_id := dbms_transaction.local_transaction_id( TRUE );
 end;
 
---Xem muc cô lap hien tai trong Oracle
+--Xem muc cÃ´ lap hien tai trong Oracle
 SELECT s.sid, s.serial#,
 CASE BITAND(t.flag, POWER(2, 28))
 WHEN 0 THEN 'READ COMMITTED'
@@ -241,11 +241,11 @@ END AS isolation_level
 FROM v$transaction t
 JOIN v$session s ON t.addr = s.taddr AND s.sid = sys_context('USERENV', 'SID');
 
---Set muc cô lap o SESSION
+--Set muc cÃ´ lap o SESSION
 ALTER SESSION SET ISOLATION_LEVEL= SERIALIZABLE;
 ALTER SESSION SET ISOLATION_LEVEL= READ COMMITTED;
 
---Set muc cô lap o TRANSACTION
+--Set muc cÃ´ lap o TRANSACTION
 SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
 
 commit
@@ -363,16 +363,6 @@ AND KHOSACH_QLKHO.SoLuong > 50
 AND CHINHANH.MaChiNhanh <> 'CN01'
 AND SACH.NhaXuatBan = 'Kim Dong';
 SELECT * FROM TABLE(DBMS_XPLAN.display_cursor(format=>'ALLSTATS LAST'));
-
-[9:48 PM] Van Qu?c Tr?nh
-/*+ GATHER_PLAN_STATISTICS */
-
-
- 
-
-select plan_table_ouput from table (dbms_xplan.display());
-[10:24 PM] Nguy?n Minh Nh?t
-select /*+ gather_plan_statistics */ avg(x*2) from
 
 
 
