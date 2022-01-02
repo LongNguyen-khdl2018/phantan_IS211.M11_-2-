@@ -1,0 +1,21 @@
+- tạo bảng emp
+create 'emp', 'personal data','professional data'
+
+-thêm dữ liệu
+
+put 'emp','1','personal data:name','Le'
+put 'emp','1','personal data:city','hanoi'
+put 'emp','1','professional data:task','manager'
+put 'emp','1','professional data:salary','5000'
+put 'emp','1','professional data:education','MBA'
+put 'emp','2','personal data:name','Pham'
+put 'emp','2','personal data:city','tp hcm'
+put 'emp','2','professional data:task','engineer'
+put 'emp','2','professional data:salary','3000'
+put 'emp','2','professional data:education','bachelor'
+put 'emp','3','personal data:name','Tran'
+put 'emp','3','personal data:city','tp hcm'
+put 'emp','3','professional data:task','engineer'
+put 'emp','3','professional data:salary','2500'
+put 'emp','3','professional data:education','bachelor'
+
